@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  t_volume: 1
+  t_reps: 1
+  avg_rpe: 1
+
+two:
+  t_volume: 1
+  t_reps: 1
+  avg_rpe: 1
