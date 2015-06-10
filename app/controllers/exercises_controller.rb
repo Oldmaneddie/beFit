@@ -6,6 +6,7 @@ class ExercisesController < ActionController::Base
 	end
 
 	def new
+		
 		@exercises = @workout.exercises.build
 
 	end
@@ -13,7 +14,6 @@ class ExercisesController < ActionController::Base
 	def create
 		@exercises = @workout.exercises.build exercise_params
 		@exercises.save
-			##look into nested controller 
 		redirect_to workout_exercise_path(@workout,@exercises)
 	end
 
