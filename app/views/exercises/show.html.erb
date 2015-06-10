@@ -1,0 +1,9 @@
+<h1>Exercise Logged! Great Job</h1>
+<p> name: <%= @exercises.name %></p>
+<p> reps : <%= @exercises.reps %></p>
+<p> sets : <%= @exercises.sets %></p>
+<p> rpe : <%= @exercises.rpe %></p>
+<p> weight : <%= @exercises.weight %></p>
+
+
+<%= link_to "Back",  new_workout_exercise_path(@workout) %>
