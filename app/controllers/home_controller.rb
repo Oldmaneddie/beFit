@@ -1,6 +1,7 @@
 class HomeController < ActionController::Base 
 	before_action :authenticate_user!
 	before_action :create_workout
+	# before_action :find_workout
 	def index
 		
 		@user = current_user.name; 
@@ -9,10 +10,15 @@ class HomeController < ActionController::Base
 	private
 		def create_workout
 			if current_user.workouts.empty?
-				@workout = Workout.create 
-				@workout.user_id = current_user.id 
-				@workout.save 
+				workout_new = Workout.create 
+				workout_new.user_id = current_user.id 
+				workout_new.save 
 			end
 		end
+		
+		# def find_workout
+		# 	@workout = current_user.workouts.find params[:workout_id]
 
+		# end
+##problem linking from main workout page to finished..come back later. 
 end
