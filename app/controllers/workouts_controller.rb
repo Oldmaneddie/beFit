@@ -1,12 +1,16 @@
-class WorkoutsController < ActionController::Base
+class WorkoutsController < ApplicationController
 	before_action :authenticate_user!
 	before_action :create_workout
+	
 
 	def index
 		@user = current_user
 		@daily_workout= @user.workouts.last
 		@exercises = @daily_workout.exercises.all 
+		@workout = @daily_workout.id
 	end
+	
+	
 
 	private
 
@@ -17,4 +21,6 @@ class WorkoutsController < ActionController::Base
 				workout_new.save 
 			end
 	end
+
+	
 end

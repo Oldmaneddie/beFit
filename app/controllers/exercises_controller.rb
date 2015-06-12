@@ -1,4 +1,4 @@
-class ExercisesController < ActionController::Base 
+class ExercisesController < ApplicationController
 	before_filter :find_workout
 	before_filter :authenticate_user!
 	def index
@@ -11,6 +11,13 @@ class ExercisesController < ActionController::Base
 
 	end
 
+	def edit
+		@workout = Workout.find params[:workout_id]
+		@exercises = Exercise.find params[:id]
+		
+	end
+
+
 	def create
 		@exercises = @workout.exercises.build exercise_params
 		@exercises.save
@@ -21,7 +28,14 @@ class ExercisesController < ActionController::Base
 		@exercises = Exercise.find params[:id]
 	end
 
-
+	def destroy
+	  @workout = Workout.find params[:workout_id]
+	  @exercises = Exercise.find params[:id]
+	  @exercises.destroy
+	 
+	  redirect_to root_path
+	end
+	
 	private 
 	def exercise_params
 		params.require(:exercise).permit :name, :reps, :sets, :rpe ,:weight 
