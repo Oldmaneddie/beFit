@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   resources :workouts do
     resources :exercises
   end
-
+  resources :weekly_log
   root 'workouts#index'
 
   # Example of regular route:

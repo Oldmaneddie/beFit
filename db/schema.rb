@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150609221054) do
+ActiveRecord::Schema.define(version: 20150612161439) do
 
   create_table "exercises", force: :cascade do |t|
     t.string   "name"
@@ -45,6 +45,16 @@ ActiveRecord::Schema.define(version: 20150609221054) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
+  create_table "weeklogs", force: :cascade do |t|
+    t.integer  "tvol"
+    t.integer  "treps"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "weeklogs", ["user_id"], name: "index_weeklogs_on_user_id"
+
   create_table "workouts", force: :cascade do |t|
     t.integer  "t_volume"
     t.integer  "t_reps"
@@ -52,8 +62,10 @@ ActiveRecord::Schema.define(version: 20150609221054) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "user_id"
+    t.integer  "weeklog_id"
   end
 
   add_index "workouts", ["user_id"], name: "index_workouts_on_user_id"
+  add_index "workouts", ["weeklog_id"], name: "index_workouts_on_weeklog_id"
 
 end
