@@ -22,3 +22,13 @@ As a User, I want to edit/create exercises that I can customize my workouts
 
 As a User , I want to see different graphical analysis of my workouts and weights to track my progress
 As a USer, I want to add/edit and see my workouts in a calender format so that I can see what my week looks like. 
+
+Functionality Goals 
+-------------------
+get the moving variables working again
+keep with it as it is
+incoprorate Gems: Paperclip, CSV 
+make it pretty with boostrap ?
+get a working mock and test
+then save that and see if there is any additional functionality you want as well. 
+
