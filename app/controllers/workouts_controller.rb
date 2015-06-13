@@ -2,6 +2,7 @@ class WorkoutsController < ApplicationController
 	before_action :authenticate_user!
 	before_action :create_weeklog
 	before_action :create_workout
+	before_action :check_new_weeklog
 	before_action :check_new_active_workout
 	
 
@@ -55,6 +56,24 @@ class WorkoutsController < ApplicationController
 
 	end
 
+	def check_new_weeklog #don't know if this works..trying to test it has been catastrophic lol 
+		 weeklog = current_user.weeklogs.find_by current_week:true 
+		 endofweek = weeklog.created_at.days_since(7)
 
 
+		if endofweek < Time.now 
+			weeklog.current_week = false
+			weeklog.save!
+		end 
+
+		if current_user.weeklogs.last.current_week == false
+			@weeklog_new = Weeklog.create
+			@weeklog_new.user_id = current_user.id
+			@weeklog_new.current_week = true 
+
+			@weeklog_new.save
+		
+		end
+
+	end
 end
