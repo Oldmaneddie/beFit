@@ -21,7 +21,7 @@ class ExercisesController < ApplicationController
 	def create
 		@exercises = @workout.exercises.build exercise_params
 		@exercises.save
-		redirect_to workout_exercise_path(@workout,@exercises)
+		redirect_to workouts_path
 	end
 
 	def show
