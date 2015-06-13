@@ -19,6 +19,8 @@ gem 'jquery-rails'
 
 # Use Devise for Authentication
 gem 'devise'
+# Use paperclip to upload images 
+gem "paperclip", "~> 4.2"
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
