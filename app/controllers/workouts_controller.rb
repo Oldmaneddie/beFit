@@ -2,6 +2,7 @@ class WorkoutsController < ApplicationController
 	before_action :authenticate_user!
 	before_action :create_weeklog
 	before_action :create_workout
+	before_action :check_new_active_workout
 	
 
 
@@ -30,7 +31,8 @@ class WorkoutsController < ApplicationController
 	end
 
 	def create_workout
-			if current_user.workouts.empty?
+
+			if current_user.workouts.empty?  
 				@workout_new = Workout.create 
 				@workout_new.user_id = current_user.id
 				@workout_new.weeklog_id = @weeklog_new.id 
@@ -38,6 +40,21 @@ class WorkoutsController < ApplicationController
 				@workout_new.save 
 			end
 	end
+
+	def check_new_active_workout
+	
+			if current_user.workouts[0].current_workout == false
+				@workout_new = Workout.create 
+				@workout_new.user_id = current_user.id
+				weeklog_id = Weeklog.find_by current_week:true 
+				@workout_new.weeklog_id = weeklog_id.id 
+				@workout_new.current_workout = true
+				@workout_new.save 
+			end
+
+
+	end
+
 
 
 end

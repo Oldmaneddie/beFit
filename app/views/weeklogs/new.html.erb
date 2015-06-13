@@ -1,6 +1,6 @@
 <h1>Weekly Report</h1>
 
-<% @WeekReport.each do |workout| %>
+<% @WeekWorkouts.each do |workout| %>
 	<p><b><%= workout.updated_at %></b></p>
 	
 	<% workout.exercises.each do |i| %>
