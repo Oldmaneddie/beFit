@@ -8,7 +8,7 @@ class WorkoutsController < ApplicationController
 
 	def index
 		@user = current_user
-		@daily_workout= @user.workouts.last
+		@daily_workout= @user.workouts.find_by current_workout:true 
 		@exercises = @daily_workout.exercises.all 
 		@workout = @daily_workout.id
 	end
@@ -43,7 +43,7 @@ class WorkoutsController < ApplicationController
 
 	def check_new_active_workout
 	
-			if current_user.workouts[0].current_workout == false
+			if current_user.workouts.last.current_workout == false
 				@workout_new = Workout.create 
 				@workout_new.user_id = current_user.id
 				weeklog_id = Weeklog.find_by current_week:true 
