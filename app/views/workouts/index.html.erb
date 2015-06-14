@@ -1,30 +1,62 @@
 <h2> Welcome <%= @user.name %> </h2>
 
-<h1>Today's Workout</h1>
 
-<% if flash[:notice] %>
-	<% flash.each do |name, msg| -%>
-      <%= content_tag :div, msg, class: name %>
-    <% end -%>
-<% end %>
+	<% if flash[:error] %>
+		<div class="alert alert-danger" role="alert">
 
-<ul>
-	<% @exercises.each do |exercise| %>
-	
-		<li>Name: <%= exercise.name %></li>
-	
-		<li>&nbsp; Reps: <%= exercise.reps%></li>
-		<li>&nbsp; Sets: <%= exercise.sets%></li>
-		<li>&nbsp; Weight: <%= exercise.weight%></li>
-		<%= link_to "Edit", edit_workout_exercise_path(@workout,exercise) %>
-		<%= link_to "Delete", workout_exercise_path(@workout,exercise),method: :delete %>
-	
+		<% flash.each do |name, msg| -%>
+	      <%= content_tag :div, msg, class: name %>
+	    <% end -%>
+		</div>
 	<% end %>
-</ul>
-<p><%= link_to "Add a New Exercise", new_workout_exercise_path(@workout) %></p>
-<P><%= link_to "All Finished! Log to Week", new_weeklog_path %></p>
 
 
+	<% if flash[:confirm] %>
+
+		<div class="alert alert-success" role="alert">
+
+		<% flash.each do |name, msg| -%>
+	      <%= content_tag :div, msg, class: name %>
+	    <% end -%>
+		</div>
+	<% end %>
+
+
+<!-- -->
+<div class="container">
+  <div class="page-header">
+    <h1 class="text-center">Today's Workout</h1>
+  </div>
+  <p class="lead text-center">Log &amp; Automatically Track all your Workouts and Exercises! </p>
+  
+
+
+  	<div class="container">
+    	<div class="row stylish-panel">
+     	
+     	<% @exercises.each do |exercise| %>
+      	<div class="col-md-4">
+	        <div>
+	          <h2><%= exercise.name %></h2>
+	          <p>Reps: <%= exercise.reps %> | Sets: <%= exercise.sets %> | RPE: <%= exercise.rpe %> | Weight:<%= exercise.weight %></p>
+
+
+	          <%= link_to "Edit", edit_workout_exercise_path(@workout,exercise),:class => "btn btn-primary" %>
+			  <%= link_to "Delete", workout_exercise_path(@workout,exercise),method: :delete, :class =>"btn btn-primary" %>
+			</div>
+      	</div>
+      	<% end %>
+
+      
+    	</div>
+  	</div>
+
+</div>
+<div class= "btn-group btn-group-justified">
+<p><%= link_to "Add a New Exercise", new_workout_exercise_path(@workout), :class => "btn btn-primary btn-lg btn-block" %></p>
+<p><%= link_to "All Finished! Log to Week", new_weeklog_path, :class => "btn btn-primary btn-lg btn-block" %></p>
+</div>
+<!-- -->
 
 <h1>Week Workouts</h1>
 

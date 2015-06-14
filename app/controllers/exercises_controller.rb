@@ -26,9 +26,9 @@ class ExercisesController < ApplicationController
 		@exercises.save
 
 		if @exercises.invalid? 
-			flash[:notice] = "Oops Look like you Missed Something! Try Again"
+			flash[:error] = "Oops Look like you Missed Something! Try Again"
 		else 
-			flash[:notice] = "Nice! Exercise Logged!"
+			flash[:confirm] = "Nice! Exercise Logged!"
 		end
 		
 		redirect_to workouts_path
