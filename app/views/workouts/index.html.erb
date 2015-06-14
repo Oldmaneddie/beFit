@@ -2,6 +2,12 @@
 
 <h1>Today's Workout</h1>
 
+<% if flash[:notice] %>
+	<% flash.each do |name, msg| -%>
+      <%= content_tag :div, msg, class: name %>
+    <% end -%>
+<% end %>
+
 <ul>
 	<% @exercises.each do |exercise| %>
 	
@@ -16,9 +22,11 @@
 	<% end %>
 </ul>
 <p><%= link_to "Add a New Exercise", new_workout_exercise_path(@workout) %></p>
-<P><%= link_to "Finish & Log Workout 2 Weekly Report", new_weeklog_path %></p>
+<P><%= link_to "All Finished! Log to Week", new_weeklog_path %></p>
 
-<h1>Weekly Report</h1>
+
+
+<h1>Week Workouts</h1>
 
 <% @WeekWorkouts.each do |workout| %>
 	<p><b><%= workout.updated_at %></b></p>

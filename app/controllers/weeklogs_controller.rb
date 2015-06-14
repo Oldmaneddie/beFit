@@ -5,7 +5,7 @@ class WeeklogsController < ApplicationController
 		weeklog = Weeklog.find_by current_week:true
 		@WeekWorkouts = weeklog.workouts
 		@WeekWorkouts.where("current_workout =?",true).update_all(current_workout:false)
-
+		
 		redirect_to workouts_path 
 	end
 

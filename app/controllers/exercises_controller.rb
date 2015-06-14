@@ -1,6 +1,7 @@
 class ExercisesController < ApplicationController
 	before_filter :find_workout
 	before_filter :authenticate_user!
+
 	def index
 		@exercises = @workout.exercises
 	end
@@ -19,8 +20,17 @@ class ExercisesController < ApplicationController
 
 
 	def create
+
 		@exercises = @workout.exercises.build exercise_params
+		
 		@exercises.save
+
+		if @exercises.invalid? 
+			flash[:notice] = "Oops Look like you Missed Something! Try Again"
+		else 
+			flash[:notice] = "Nice! Exercise Logged!"
+		end
+		
 		redirect_to workouts_path
 	end
 
