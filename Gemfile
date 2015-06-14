@@ -22,6 +22,8 @@ gem 'devise'
 # Use paperclip to upload images 
 gem "paperclip", "~> 4.2"
 
+#aded from https://github.com/seyhunak/twitter-bootstrap-rails
+gem "twitter-bootstrap-rails"
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
