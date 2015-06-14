@@ -12,6 +12,9 @@ class WorkoutsController < ApplicationController
 		@daily_workout= @user.workouts.find_by current_workout:true 
 		@exercises = @daily_workout.exercises.all 
 		@workout = @daily_workout.id
+
+		weeklog = Weeklog.find_by current_week:true 
+		@WeekWorkouts = weeklog.workouts.where("current_workout =?",false)
 	end
 	
 	
