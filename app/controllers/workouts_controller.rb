@@ -15,33 +15,19 @@ class WorkoutsController < ApplicationController
 
 		weeklog = Weeklog.find_by current_week:true 
 		@WeekWorkouts = weeklog.workouts.where("current_workout =?",false)
-		@timeline = true 
 		
-		def leftOrRight
-			if @timeline = true
-				@timeline = false
-			elsif @timeline  = false
-				@timeline = true
-			end 
+		@weekrecords = Weeklog.where("current_week =?",false)
 
-		end
+
 	end
 	
-	def create
- 		 @user = User.create( user_params )
-
- 		 redirect_to workouts_path
-	end
+	
 
 	private
 
-	def user_params
-  		params.require(:user).permit(:avatar)
-	end
 
-	# Primary issue right now is that I need to find a way to check all current_user workouts/weeklogs to see if any are false 
-	# and then recreate the log itself and then when you save it it'll just set them to false and then that'll keep track and 
-	# then figure out a way to have a tracked array keep track of workouts. 
+	# you need to REFACTOR the fuuuuuck out of this project . 
+
 	def create_weeklog
 		if current_user.weeklogs.empty? 
 			@weeklog_new = Weeklog.create

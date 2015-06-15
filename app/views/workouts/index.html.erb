@@ -5,9 +5,9 @@
 	<%= image_tag @user.avatar.url(:medium) %>
 	<%= image_tag @user.avatar.url(:thumb) %>
 
-	<%= form_for @user, :url => workouts_path, method: :post, :html => { :multipart => true } do |form| %>
+	<%= form_for @user, :html => { :multipart => true } do |form| %>
 	  <%= form.file_field :avatar%>
-	  <%= form.submit "New Profile", :class => "btn btn-primary"%>
+	  <%= form.submit "New Profile Picture", :class => "btn btn-primary"%>
 	  <h5> Welcome <%= @user.name %> </h5>
 	<% end %>
 </div>
@@ -68,9 +68,25 @@
 <p><%= link_to "All Done! Log to Week", new_weeklog_path, :class => "btn btn-primary btn-lg " %></p>
 </div>
 <!-- -->
+<div class ="container"
+	<div id = "previousWeeks"> <!-- instead merge this into container scope class? -->
+		<div class = "page-header">
+			<h1>Previous Week Reports</h1>
+		</div>
 
-<div id = "previousWeeks">
-	<h1>Previous Week Reports</h1>
+		<% @weekrecords.each do |week| %>
+			<p><%= link_to week.created_at, weeklog_path(week) %></p>
+		<% end %>
+
+
+
+
+
+
+
+
+
+	</div>
 </div>
 
 <div class="container">

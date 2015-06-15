@@ -9,5 +9,9 @@ class WeeklogsController < ApplicationController
 		redirect_to workouts_path 
 	end
 
-	
+	def show
+		weeklog = Weeklog.find_by params[:id]
+		@weekrecords = weeklog.workouts
+	end
+
 end

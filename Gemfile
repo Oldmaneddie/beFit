@@ -20,6 +20,8 @@ gem 'jquery-rails'
 # Simpleform
 gem 'simple_form'
 
+gem 'pry'
+
 # Use Devise for Authentication
 gem 'devise'
 # Use paperclip to upload images 

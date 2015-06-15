@@ -1,0 +1,12 @@
+
+<% @weekrecords.each do |workout| %>
+	<p><b><%= workout.updated_at %></b></p>
+	
+	<% workout.exercises.each do |i| %>
+			
+			<p><%= i.name %> | Reps:<%= i.reps %> | Sets: <%= i.sets %> | Weight: <%= i.weight %> </p>
+
+	<% end %>
+
+<%end%>
+<%= link_to "Return to Menu", root_path %>
