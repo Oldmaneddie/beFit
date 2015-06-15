@@ -15,6 +15,16 @@ class WorkoutsController < ApplicationController
 
 		weeklog = Weeklog.find_by current_week:true 
 		@WeekWorkouts = weeklog.workouts.where("current_workout =?",false)
+		@timeline = true 
+		
+		def leftOrRight
+			if @timeline = true
+				@timeline = false
+			elsif @timeline  = false
+				@timeline = true
+			end 
+
+		end
 	end
 	
 	def create

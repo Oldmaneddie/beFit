@@ -76,13 +76,13 @@
         <h1 id="timeline">Timeline</h1>
     </div>
 
-    <ul class="timeline">
+   
 
 		<% @WeekWorkouts.each do |workout| %>
-			
 
+ 		<ul class="timeline">
 			 <li>
-	          <div class="timeline-badge"><i class="glyphicon glyphicon-check"></i></div>
+	          <div class="timeline-badge"><i class="glyphicon glyphicon-cog"></i></div>
 	          <div class="timeline-panel">
 	            <div class="timeline-heading">
 	            	<h4 class="timeline-title"><%= workout.updated_at %></h4>
@@ -97,11 +97,10 @@
 				</div>
 			 </div>
 			</li>
+			</ul>
 		<%end%>
 
 
-
-    </ul>
 </div>
 
 

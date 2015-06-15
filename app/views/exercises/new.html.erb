@@ -1,4 +1,10 @@
-<h2>Add a New Exercise!</h2>
+
+<div class="container">
+  <div class="page-header">
+    <h1 class="text-center">Add New Exercise!</h1>
+  </div>
+  <p class="lead text-center">Log &amp; </p>
+
 
  <%= form_for [@workout, @exercises], url:{ action: "create" } do |f| %> 
       <%= f.label :name %>
@@ -16,7 +22,9 @@
       <%= f.label :weight %>
       <%= f.number_field :weight %></br>
 
-      <%= f.submit "Enter new Exercise" %>
+      <%= f.submit "Enter new Exercise", :class => "btn btn-primary btn_submit" %>
  <% end  %>
     
-<%= link_to "Return to Main Menu", workouts_path %>
+<%= link_to "Return to Main Menu", workouts_path ,:class => "btn btn-primary btn_submit"%>
+
+</div>
