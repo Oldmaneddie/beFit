@@ -46,6 +46,12 @@ body {
   text-align: center;
 }
 
+.show_exercises {
+  border-bottom: 1px solid #eee;
+}
 
+.log_exercises{
+  margin-top: 20px; 
+}
 
 

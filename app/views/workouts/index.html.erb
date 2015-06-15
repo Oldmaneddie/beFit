@@ -42,7 +42,7 @@
   
 
 
-  	<div class="container">
+  	<div class="container show_exercises">
     	<div class="row stylish-panel">
      	
      	<% @exercises.each do |exercise| %>
@@ -65,7 +65,7 @@
 </div>
 <div class= "btn-group btn-group-justified log_exercises">
 <p><%= link_to "Add a New Exercise", new_workout_exercise_path(@workout), :class => "btn btn-primary btn-lg " %></p>
-<p><%= link_to "All Finished! Log to Week", new_weeklog_path, :class => "btn btn-primary btn-lg " %></p>
+<p><%= link_to "All Done! Log to Week", new_weeklog_path, :class => "btn btn-primary btn-lg " %></p>
 </div>
 <!-- -->
 
