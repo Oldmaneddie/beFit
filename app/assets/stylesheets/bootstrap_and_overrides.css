@@ -48,6 +48,12 @@ body {
 
 .show_exercises {
   border-bottom: 1px solid #eee;
+
+}
+
+.new_exercise {
+  text-align: center;
+  font-size: 1.5em;
 }
 
 .log_exercises{
@@ -55,7 +61,12 @@ body {
 }
 
 .btn_submit{
-  margin-top: 10px
+  margin-top: 10px;
+  text-align: center ;
+}
+
+#previousWeeks {
+  text-align: center; 
 }
 
 /* Timeline CSS */
@@ -64,7 +75,12 @@ body {
   list-style: none;
   padding: 20px 0 20px;
   position: relative;
+
 }
+#timeline {
+  text-align: center;
+}
+
 .timeline:before {
   top: 0;
   bottom: 0;
