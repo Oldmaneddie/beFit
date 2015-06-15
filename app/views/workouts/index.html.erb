@@ -1,14 +1,16 @@
-<h2> Welcome <%= @user.name %> </h2>
+<div class = "user-profile">
+	
 
-<%= image_tag @user.avatar.url %>
-<%= image_tag @user.avatar.url(:medium) %>
-<%= image_tag @user.avatar.url(:thumb) %>
+	<%= image_tag @user.avatar.url %>
+	<%= image_tag @user.avatar.url(:medium) %>
+	<%= image_tag @user.avatar.url(:thumb) %>
 
-<%= form_for @user, :url => workouts_path, method: :post, :html => { :multipart => true } do |form| %>
-  <%= form.file_field :avatar %>
-  <%= form.submit "New Profile" %>
-<% end %>
-
+	<%= form_for @user, :url => workouts_path, method: :post, :html => { :multipart => true } do |form| %>
+	  <%= form.file_field :avatar%>
+	  <%= form.submit "New Profile", :class => "btn btn-primary"%>
+	  <h5> Welcome <%= @user.name %> </h5>
+	<% end %>
+</div>
 
 	<% if flash[:error] %>
 		<div class="alert alert-danger" role="alert">
@@ -61,9 +63,9 @@
   	</div>
 
 </div>
-<div class= "btn-group btn-group-justified">
-<p><%= link_to "Add a New Exercise", new_workout_exercise_path(@workout), :class => "btn btn-primary btn-lg btn-block" %></p>
-<p><%= link_to "All Finished! Log to Week", new_weeklog_path, :class => "btn btn-primary btn-lg btn-block" %></p>
+<div class= "btn-group btn-group-justified log_exercises">
+<p><%= link_to "Add a New Exercise", new_workout_exercise_path(@workout), :class => "btn btn-primary btn-lg " %></p>
+<p><%= link_to "All Finished! Log to Week", new_weeklog_path, :class => "btn btn-primary btn-lg " %></p>
 </div>
 <!-- -->
 
