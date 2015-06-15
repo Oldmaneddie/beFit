@@ -17,9 +17,17 @@ class WorkoutsController < ApplicationController
 		@WeekWorkouts = weeklog.workouts.where("current_workout =?",false)
 	end
 	
-	
+	def create
+ 		 @user = User.create( user_params )
+
+ 		 redirect_to workouts_path
+	end
 
 	private
+
+	def user_params
+  		params.require(:user).permit(:avatar)
+	end
 
 	# Primary issue right now is that I need to find a way to check all current_user workouts/weeklogs to see if any are false 
 	# and then recreate the log itself and then when you save it it'll just set them to false and then that'll keep track and 

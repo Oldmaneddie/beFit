@@ -17,6 +17,9 @@ gem 'coffee-rails', '~> 4.1.0'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
+# Simpleform
+gem 'simple_form'
+
 # Use Devise for Authentication
 gem 'devise'
 # Use paperclip to upload images 

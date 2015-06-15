@@ -4,6 +4,8 @@ Rails.application.configure do
   ###Setting DEVISE default URL options for Devise mailer 
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
   
+  #PAPERCLIP
+  Paperclip.options[:command_path] = "/usr/local/bin/"
 
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development

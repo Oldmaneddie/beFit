@@ -1,5 +1,14 @@
 <h2> Welcome <%= @user.name %> </h2>
 
+<%= image_tag @user.avatar.url %>
+<%= image_tag @user.avatar.url(:medium) %>
+<%= image_tag @user.avatar.url(:thumb) %>
+
+<%= form_for @user, :url => workouts_path, method: :post, :html => { :multipart => true } do |form| %>
+  <%= form.file_field :avatar %>
+  <%= form.submit "New Profile" %>
+<% end %>
+
 
 	<% if flash[:error] %>
 		<div class="alert alert-danger" role="alert">
