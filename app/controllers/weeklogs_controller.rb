@@ -12,6 +12,12 @@ class WeeklogsController < ApplicationController
 	def show
 		weeklog = Weeklog.find_by params[:id]
 		@weekrecords = weeklog.workouts
+
+		respond_to do |format|
+			format.html
+			format.csv { render text: weeklog.to_csv }
+			#didn't need weekrecords insteaded all you needed was the record
+		end
 	end
 
 end
