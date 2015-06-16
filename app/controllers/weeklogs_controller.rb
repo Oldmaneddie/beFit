@@ -16,7 +16,7 @@ class WeeklogsController < ApplicationController
 		respond_to do |format|
 			format.html
 			format.csv { render text: weeklog.to_csv }
-			#didn't need weekrecords insteaded all you needed was the record
+			#didn't need weekrecords instead all you needed was the record
 		end
 	end
 

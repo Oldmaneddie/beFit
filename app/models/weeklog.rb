@@ -14,3 +14,6 @@ class Weeklog < ActiveRecord::Base
   	end
   end
 end
+
+# so then issue was you just needed to go one full iteration deeper
+# as well as customize the actual column_names manually 
