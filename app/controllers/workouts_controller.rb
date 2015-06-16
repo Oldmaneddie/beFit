@@ -26,7 +26,7 @@ class WorkoutsController < ApplicationController
 	private
 
 
-	# you need to REFACTOR the fuuuuuck out of this project . 
+	# you need to REFACTOR the fuuuck out of this project . 
 
 	def create_weeklog
 		if current_user.weeklogs.empty? 

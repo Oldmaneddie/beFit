@@ -1,9 +1,8 @@
 <div class = "user-profile">
 	
 
-	<%= image_tag @user.avatar.url %>
-	<%= image_tag @user.avatar.url(:medium) %>
-	<%= image_tag @user.avatar.url(:thumb) %>
+	<%= image_tag @user.avatar.url(:medium),:class => "profile_pic"%>
+
 
 	<%= form_for @user, :html => { :multipart => true } do |form| %>
 	  <%= form.file_field :avatar%>
