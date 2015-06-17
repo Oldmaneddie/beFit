@@ -63,7 +63,7 @@ class WorkoutsController < ApplicationController
 
 	end
 
-	def check_new_weeklog #tested with .days_since(1) and it works but obviously seed files are best 
+	def check_new_weeklog #tested with .days_since(1) and it works but obviously need seeds
 		 weeklog = current_user.weeklogs.find_by current_week:true 
 		 endofweek = weeklog.created_at.days_since(7)
 

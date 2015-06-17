@@ -3,12 +3,13 @@
 
 	<%= image_tag @user.avatar.url(:medium),:class => "profile_pic"%>
 
-
+	
 	<%= form_for @user, :html => { :multipart => true } do |form| %>
-	  <%= form.file_field :avatar%>
+	  <%= form.file_field :avatar %>
 	  <%= form.submit "New Profile Picture", :class => "btn btn-primary"%>
 	  <h5> Welcome <%= @user.name %> </h5>
 	<% end %>
+	
 </div>
 
 	<% if flash[:error] %>

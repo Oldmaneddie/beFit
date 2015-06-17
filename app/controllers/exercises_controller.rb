@@ -20,10 +20,11 @@ class ExercisesController < ApplicationController
 
 
 	def create
-
+		
 		@exercises = @workout.exercises.build exercise_params
 		
 		@exercises.save
+
 
 		if @exercises.invalid? 
 			flash[:error] = "Oops Look like you Missed Something! Try Again"
